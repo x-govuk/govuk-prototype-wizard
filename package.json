@@ -1,0 +1,28 @@
+{
+  "name": "govuk-prototype-wizard",
+  "version": "0.1.0",
+  "description": "Define user journeys",
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "main": "wizard.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-govuk/govuk-prototype-wizard.git"
+  },
+  "keywords": [
+    "govuk",
+    "govuk-prototype-kit",
+    "prototype",
+    "express"
+  ],
+  "author": "x-govuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/x-govuk/govuk-prototype-wizard/issues"
+  },
+  "homepage": "https://github.com/x-govuk/govuk-prototype-wizard#readme",
+  "dependencies": {
+    "lodash": "^4.0.0"
+  }
+}
