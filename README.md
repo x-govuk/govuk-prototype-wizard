@@ -54,24 +54,24 @@ You can fork from that journey by giving a list of paths and conditions – if t
 {
   '/path': {
     // Redirect if session.data.key equals 'Some value'
-    '/fork': { data: 'key', value: 'Some value' },
+    '/path-to-fork-to': { data: 'key', value: 'Some value' },
 
     // Redirect if session.data.key is in the given array
-    '/fork': { data: 'key', values: ['A value', 'Another value'] },
+    '/path-to-fork-to': { data: 'key', values: ['A value', 'Another value'] },
 
     // Redirect if session.data.key does not equal 'Some value'
-    '/fork': { data: 'key', excludedValue: 'Some value' },
+    '/path-to-fork-to': { data: 'key', excludedValue: 'Some value' },
 
     // Redirect if session.data.key is not in the given array
-    '/fork': { data: 'key', excludedValues: ['A value', 'Another value'] },
+    '/path-to-fork-to': { data: 'key', excludedValues: ['A value', 'Another value'] },
 
     // Redirect if the given function evaluates to true
-    '/fork': () => {
+    '/path-to-fork-to': () => {
       return req.session.data.key == 'Something else'
     },
 
     // Shorthand
-    '/fork': () => req.session.data.key == 'Something else'
+    '/path-to-fork-to': () => req.session.data.key == 'Something else'
   }
 }
 ```
