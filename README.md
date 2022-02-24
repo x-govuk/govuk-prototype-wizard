@@ -44,7 +44,74 @@ If the request was made from `/nationality`, the helper returns:
 }
 ```
 
-## Examples
+### Forking a journey
+
+By default a user will progress through the journey in the order set out.
+
+You can fork from that journey by giving a list of paths and conditions – if the conditions are met the user will follow the fork.
+
+```js
+{
+  '/path': {
+    // Redirect if session.data.key equals 'Some value'
+    '/fork': { data: 'key', value: 'Some value' },
+
+    // Redirect if session.data.key is in the given array
+    '/fork': { data: 'key', values: ['A value', 'Another value'] },
+
+    // Redirect if session.data.key does not equal 'Some value'
+    '/fork': { data: 'key', excludedValue: 'Some value' },
+
+    // Redirect if session.data.key is not in the given array
+    '/fork': { data: 'key', excludedValues: ['A value', 'Another value'] },
+
+    // Redirect if the given function evaluates to true
+    '/fork': () => {
+      return req.session.data.key == 'Something else'
+    },
+
+    // Shorthand
+    '/fork': () => req.session.data.key == 'Something else'
+  }
+}
+```
+
+Each path can have multiple forks, they are evaluated in order – the user will be redirected to the first page that meets the conditions.
+
+```js
+{
+  // Go to different pages based on the country chosen
+  '/pick-a-country': {
+    '/scotland': { data: 'country', value: 'Scotland' },
+    '/wales': { data: 'country', value: 'Wales' },
+    '/ireland': { data: 'country', values: ['Ireland', 'Northern Ireland'] },
+    '/asia': () => isCountryInAsia(data)
+  }
+}
+```
+
+## An example
+
+In this example we:
+
+- ask the user their name
+- ask if they have a National Insurance number, then:
+  - skip the ‘What is your National Insurance number?’ question if they do not have a number
+  - continue to the ‘What is your National Insurance number?’ question if they do
+- ask for their email address
+
+```js
+{
+  '/name': {},
+  '/do-you-have-a-national-insurance-number': {
+    '/email': { data: 'have-nino', value: 'No' }
+  },
+  '/what-is-your-national-insurance-number': {},
+  '/email': {}
+}
+```
+
+## How to get a wizard working
 
 ### Create a user journey
 
@@ -65,7 +132,10 @@ const exampleWizard = (req) => {
 module.exports = exampleWizard
 ```
 
-### Make the paths available in the view using routes
+### Set up the routes
+
+1. Make the paths available in the view using routes
+2. Post each form back to itself, evaluate the paths and redirect to the calculated next page
 
 ```js
 const exampleWizard = require('example-wizard.js')
@@ -86,8 +156,6 @@ An example Nunjucks layout extending the default GOV.UK layout:
 
 ```
 {% extends "layout.html" %}
-{% block pageTitle %}{{ title }}{% endblock %}
-
 {% block pageNavigation %}
   {{ govukBackLink({
     href: paths.back
@@ -97,13 +165,10 @@ An example Nunjucks layout extending the default GOV.UK layout:
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% block beforeForm %}{% endblock %}
-
       <form method="post" novalidate>
         {% block form %}{% endblock %}
-
         {{ govukButton({
-          html: buttonText if buttonText else 'Continue'
+          text: 'Continue'
         }) }}
       </form>
     </div>
@@ -115,12 +180,10 @@ An example Nunjucks layout extending the default GOV.UK layout:
 
 ```
 {% extends "layouts/wizard.html" %}
-{% set title = "Your email address" %}
-
 {% block form %}
   {{ govukInput({
     label: {
-      text: title,
+      text: "Your email address",
       classes: "govuk-label--xl",
       isPageHeading: true
     },
