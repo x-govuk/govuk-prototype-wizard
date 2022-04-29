@@ -20,6 +20,10 @@ const getFork = (forks, req) => {
   for (const key of Object.keys(forks)) {
     const fork = forks[key]
 
+    if (fork === true) {
+      return key
+    }
+
     if (typeof fork === 'function' && fork()) {
       return key
     }
