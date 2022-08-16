@@ -1,7 +1,7 @@
 {
   "name": "govuk-prototype-wizard",
   "version": "0.2.0",
-  "description": "Define user journeys",
+  "description": "Build and iterate ‘one thing per page’ user journeys when prototyping GOV.UK services",
   "engines": {
     "node": ">= 16.0.0"
   },
