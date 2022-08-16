@@ -2,12 +2,18 @@
 
 Easily build and iterate a ‘one thing per page’ user journey when prototyping GOV.UK services.
 
-Use it with the [govuk-prototype-kit](https://github.com/alphagov/govuk-prototype-kit). It’s included by default with the [govuk-prototype-rig](https://github.com/paulrobertlloyd/govuk-prototype-rig).
+Use it with the [govuk-prototype-kit](https://github.com/alphagov/govuk-prototype-kit).
 
-## Install
+## Requirements
 
-```
-npm install govuk-prototype-wizard
+Node.js v16 or later.
+
+## Installation
+
+> This package is included by default with the [GOV.UK Prototype Rig](https://x-govuk.github.io/govuk-prototype-rig/).
+
+```shell
+npm install govuk-prototype-wizard --save
 ```
 
 ## Usage
