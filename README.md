@@ -1,8 +1,8 @@
-# Prototype wizard
+# GOV.UK Prototype Wizard
 
-Easily build and iterate a ‘one thing per page’ user journey when prototyping GOV.UK services.
+Build and iterate ‘one thing per page’ user journeys when prototyping GOV.UK services.
 
-Use it with the [govuk-prototype-kit](https://github.com/alphagov/govuk-prototype-kit).
+Use it with the [GOV.UK Prototype Kit](https://govuk-prototype-kit.herokuapp.com/docs).
 
 ## Requirements
 
@@ -21,7 +21,7 @@ npm install govuk-prototype-wizard --save
 The `wizard` helper takes two parameters:
 
 1. A journey object, which defines the default user journey and any branching rules
-2. The express request object ('req')
+2. The express request object (`req`)
 
 It returns a `paths` object with paths for the next, back and the current pages. Any query parameters are kept.
 
@@ -164,7 +164,7 @@ router.post('/wizard/:view', (req, res) => {
 
 An example Nunjucks layout extending the default GOV.UK layout:
 
-```
+```njk
 {% extends "layout.html" %}
 {% block pageNavigation %}
   {{ govukBackLink({
@@ -188,7 +188,7 @@ An example Nunjucks layout extending the default GOV.UK layout:
 
 ### Build your question pages
 
-```
+```njk
 {% extends "layouts/wizard.html" %}
 {% block form %}
   {{ govukInput({
