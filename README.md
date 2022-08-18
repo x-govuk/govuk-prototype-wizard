@@ -10,7 +10,7 @@ Node.js v16 or later.
 
 ## Installation
 
-> This package is included by default with the [GOV.UK Prototype Rig](https://x-govuk.github.io/govuk-prototype-rig/).
+> **Note** This package is included by default with the [GOV.UK Prototype Rig](https://x-govuk.github.io/govuk-prototype-rig/).
 
 ```shell
 npm install govuk-prototype-wizard --save
