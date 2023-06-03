@@ -11,7 +11,7 @@ Node.js v16 or later.
 ## Installation
 
 ```shell
-npm install govuk-prototype-wizard --save
+npm install govuk-prototype-wizard
 ```
 
 ## Usage
