@@ -2,7 +2,7 @@
 
 Build and iterate ‘one thing per page’ user journeys when prototyping GOV.UK services.
 
-Use it with the [GOV.UK Prototype Kit](https://govuk-prototype-kit.herokuapp.com/docs).
+Use it with the [GOV.UK Prototype Kit](https://prototype-kit.service.gov.uk/docs/).
 
 ## Requirements
 
