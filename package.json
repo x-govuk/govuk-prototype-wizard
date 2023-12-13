@@ -13,6 +13,9 @@
     "url": "https://github.com/x-govuk/govuk-prototype-wizard/issues"
   },
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "main": "wizard.js",
   "repository": {
     "type": "git",
@@ -26,7 +29,8 @@
     "access": "public"
   },
   "dependencies": {
-    "lodash": "^4.0.0"
+    "lodash.get": "^4.2.0",
+    "lodash.topath": "^4.2.0"
   },
   "engines": {
     "node": ">=18"
