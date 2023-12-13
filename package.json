@@ -13,21 +13,26 @@
     "url": "https://github.com/x-govuk/govuk-prototype-wizard/issues"
   },
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "main": "wizard.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/x-govuk/govuk-prototype-wizard.git"
   },
   "scripts": {
-    "test": "echo \"No test specified\""
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "lodash": "^4.0.0"
+    "lodash.get": "^4.2.0",
+    "lodash.topath": "^4.2.0"
   },
   "engines": {
-    "node": ">= 16.0.0"
+    "node": ">=18"
   }
 }

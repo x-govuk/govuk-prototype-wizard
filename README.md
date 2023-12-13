@@ -1,4 +1,4 @@
-# GOV.UK Prototype Wizard
+# GOV.UK Prototype Wizard · [![test](https://github.com/x-govuk/govuk-prototype-wizard/actions/workflows/test.yml/badge.svg)](https://github.com/x-govuk/govuk-prototype-wizard/actions/workflows/test.yml)
 
 Build and iterate ‘one thing per page’ user journeys when prototyping GOV.UK services.
 
@@ -6,7 +6,7 @@ Use it with the [GOV.UK Prototype Kit](https://prototype-kit.service.gov.uk/docs
 
 ## Requirements
 
-Node.js v16 or later.
+Node.js v18 or later.
 
 ## Installation
 
