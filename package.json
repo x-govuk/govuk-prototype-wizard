@@ -2,30 +2,32 @@
   "name": "govuk-prototype-wizard",
   "version": "0.2.0",
   "description": "Build and iterate ‘one thing per page’ user journeys when prototyping GOV.UK services",
-  "engines": {
-    "node": ">= 16.0.0"
-  },
-  "main": "wizard.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/x-govuk/govuk-prototype-wizard.git"
-  },
   "keywords": [
     "govuk",
     "govuk-prototype-kit",
     "prototype",
     "express"
   ],
-  "author": "x-govuk",
-  "license": "MIT",
+  "homepage": "https://github.com/x-govuk/govuk-prototype-wizard#readme",
   "bugs": {
     "url": "https://github.com/x-govuk/govuk-prototype-wizard/issues"
+  },
+  "license": "MIT",
+  "main": "wizard.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-govuk/govuk-prototype-wizard.git"
   },
   "scripts": {
     "test": "echo \"No test specified\""
   },
-  "homepage": "https://github.com/x-govuk/govuk-prototype-wizard#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "lodash": "^4.0.0"
+  },
+  "engines": {
+    "node": ">= 16.0.0"
   }
 }
