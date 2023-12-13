@@ -1,4 +1,4 @@
-# GOV.UK Prototype Wizard
+# GOV.UK Prototype Wizard · [![test](https://github.com/x-govuk/govuk-prototype-wizard/actions/workflows/test.yml/badge.svg)](https://github.com/x-govuk/govuk-prototype-wizard/actions/workflows/test.yml)
 
 Build and iterate ‘one thing per page’ user journeys when prototyping GOV.UK services.
 
