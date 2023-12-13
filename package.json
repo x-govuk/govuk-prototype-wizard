@@ -19,7 +19,8 @@
     "url": "git+https://github.com/x-govuk/govuk-prototype-wizard.git"
   },
   "scripts": {
-    "test": "echo \"No test specified\""
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage"
   },
   "publishConfig": {
     "access": "public"
@@ -28,6 +29,6 @@
     "lodash": "^4.0.0"
   },
   "engines": {
-    "node": ">= 16.0.0"
+    "node": ">=18"
   }
 }
