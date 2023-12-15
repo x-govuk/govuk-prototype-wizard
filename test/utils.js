@@ -3,14 +3,6 @@ const { describe, it } = require('node:test')
 const utils = require('../lib/utils.js')
 
 describe('Utility functions', () => {
-  it('Gets original query string', () => {
-    const req1 = { originalUrl: '/admin/new?sort=desc' }
-    const req2 = { originalUrl: '/admin/new?sort=desc&page=1' }
-
-    assert.equal(utils.getOriginalQuery(req1), '?sort=desc')
-    assert.equal(utils.getOriginalQuery(req2), '?sort=desc&page=1')
-  })
-
   it('Gets path to fork', async (t) => {
     const req = { session: { data: { country: 'England' } } }
 
@@ -89,5 +81,13 @@ describe('Utility functions', () => {
 
       assert.equal(utils.getFork(forks, req), '/country')
     })
+  })
+
+  it('Gets original query string', () => {
+    const req1 = { originalUrl: '/admin/new?sort=desc' }
+    const req2 = { originalUrl: '/admin/new?sort=desc&page=1' }
+
+    assert.equal(utils.getOriginalQuery(req1), '?sort=desc')
+    assert.equal(utils.getOriginalQuery(req2), '?sort=desc&page=1')
   })
 })
