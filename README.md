@@ -11,7 +11,7 @@ Node.js v18 or later.
 ## Installation
 
 ```shell
-npm install govuk-prototype-wizard
+npm install @x-govuk/govuk-prototype-wizard
 ```
 
 ## Usage
@@ -124,7 +124,7 @@ In this example we:
 ### Create a user journey
 
 ```js
-const wizard = require('govuk-prototype-wizard')
+const wizard = require('@x-govuk/govuk-prototype-wizard')
 const exampleWizard = (req) => {
   const journey = {
     '/wizard/start': {},
