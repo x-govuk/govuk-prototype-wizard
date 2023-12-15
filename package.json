@@ -26,7 +26,8 @@
     "lint:js": "eslint '**/*.js'",
     "lint": "npm run lint:prettier && npm run lint:js",
     "test": "node --test",
-    "coverage": "node --test --experimental-test-coverage"
+    "coverage": "node --test --experimental-test-coverage",
+    "release": "np"
   },
   "publishConfig": {
     "access": "public"
@@ -47,6 +48,7 @@
     "eslint-plugin-n": "^16.4.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-promise": "^6.1.0",
+    "np": "^9.2.0",
     "prettier": "^3.1.0"
   }
 }
