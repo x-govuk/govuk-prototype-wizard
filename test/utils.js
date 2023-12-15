@@ -24,7 +24,7 @@ describe('Utility functions', () => {
 
     await t.test('and redirects with shorthand', () => {
       const forks = {
-        '/country': req.session.data.country == 'England'
+        '/country': req.session.data.country === 'England'
       }
 
       assert.equal(utils.getFork(forks, req), '/country')
@@ -32,7 +32,7 @@ describe('Utility functions', () => {
 
     await t.test('and redirects if function returns `true`', () => {
       const forks = {
-        '/country': () => req.session.data.country == 'England'
+        '/country': () => req.session.data.country === 'England'
       }
 
       assert.equal(utils.getFork(forks, req), '/country')
