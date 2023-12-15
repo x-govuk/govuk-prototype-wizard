@@ -61,7 +61,7 @@ describe('GOV.UK Prototype Wizard', () => {
           'forked-to': '/email',
           'forked-from': '/do-you-have-a-national-insurance-number'
         }
-      },
+      }
     }
 
     assert.deepEqual(wizard(journey, req), {
@@ -78,7 +78,7 @@ describe('GOV.UK Prototype Wizard', () => {
         data: {
           'forked-from': '/do-you-have-a-national-insurance-number',
           'forked-to': '/email'
-        },
+        }
       },
       originalUrl: '/do-you-have-a-national-insurance-number',
       path: '/do-you-have-a-national-insurance-number'
