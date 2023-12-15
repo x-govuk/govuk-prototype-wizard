@@ -8,42 +8,42 @@ const utils = require('./lib/utils.js')
  * @returns {Object} Next and back paths
  */
 const wizard = (journey, req) => {
-  const { data } = req.session
+  const { method, path, session } = req
+  const { data } = session
   const paths = Object.keys(journey)
-  const currentPath = req.path
   const query = utils.getOriginalQuery(req)
-  const index = paths.indexOf(currentPath)
+  const index = paths.indexOf(path)
   let fork
   let next
   let back
 
   if (index !== -1) {
-    fork = utils.getFork(journey[currentPath], req)
+    fork = utils.getFork(journey[path], req)
     next = fork || paths[index + 1] || ''
     back = paths[index - 1] || ''
   }
 
   // Point back to where we forked from
-  if (currentPath === data['forked-to']) {
+  if (path === data['forked-to']) {
     back = data['forked-from']
   }
 
   // Remove the saved fork if we return to it
-  if (currentPath === data['forked-from'] && req.method === 'GET') {
+  if (path === data['forked-from'] && method === 'GET') {
     delete data['forked-from']
     delete data['forked-to']
   }
 
   // Add a new fork
-  if (fork && req.method === 'POST') {
-    data['forked-from'] = currentPath
+  if (fork && method === 'POST') {
+    data['forked-from'] = path
     data['forked-to'] = fork
   }
 
   return {
     next: next && next + query,
     back: back && back + query,
-    current: currentPath + query
+    current: path + query
   }
 }
 
