@@ -22,6 +22,9 @@
     "url": "git+https://github.com/x-govuk/govuk-prototype-wizard.git"
   },
   "scripts": {
+    "lint:prettier": "prettier . --check",
+    "lint:js": "eslint '**/*.js'",
+    "lint": "npm run lint:prettier && npm run lint:js",
     "test": "node --test",
     "coverage": "node --test --experimental-test-coverage"
   },
@@ -34,5 +37,16 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsdoc": "^46.9.0",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.0",
+    "prettier": "^3.1.0"
   }
 }
