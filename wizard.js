@@ -8,10 +8,9 @@ const utils = require('./lib/utils.js')
  * @returns {Object} Next and back paths
  */
 const wizard = (journey, req) => {
-  const { method, path, session } = req
+  const { method, originalUrl, path, session } = req
   const { data } = session
   const paths = Object.keys(journey)
-  const query = utils.getOriginalQuery(req)
   const index = paths.indexOf(path)
   let fork
   let next
@@ -41,9 +40,9 @@ const wizard = (journey, req) => {
   }
 
   return {
-    next: next && next + query,
-    back: back && back + query,
-    current: path + query
+    next: utils.getPathWithSearchParams(originalUrl, next),
+    back: utils.getPathWithSearchParams(originalUrl, back),
+    current: originalUrl
   }
 }
 

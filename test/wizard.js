@@ -27,6 +27,30 @@ describe('GOV.UK Prototype Wizard', () => {
     })
   })
 
+  it('Returns next path with modified query string', () => {
+    const journey = {
+      '/filter/location': {},
+      '/list?success=1': {}
+    }
+
+    const req = {
+      method: 'POST',
+      originalUrl: '/filter/location?page=2&sort=asc',
+      path: '/filter/location',
+      query: {
+        page: '2',
+        sort: 'asc'
+      },
+      session: { data: {} }
+    }
+
+    assert.deepEqual(wizard(journey, req), {
+      back: '',
+      current: '/filter/location?page=2&sort=asc',
+      next: '/list?success=1&page=2&sort=asc'
+    })
+  })
+
   it('Adds fork data pointing back to where user forked from', () => {
     const req = {
       method: 'GET',

@@ -83,11 +83,36 @@ describe('Utility functions', () => {
     })
   })
 
-  it('Gets original query string', () => {
-    const req1 = { originalUrl: '/admin/new?sort=desc' }
-    const req2 = { originalUrl: '/admin/new?sort=desc&page=1' }
+  it('Gets path with combined search params', async (t) => {
+    await t.test('when path has search params', () => {
+      const originalUrl = '/filter/location'
+      const path = '/list?success=1'
+      const result = utils.getPathWithSearchParams(originalUrl, path)
 
-    assert.equal(utils.getOriginalQuery(req1), '?sort=desc')
-    assert.equal(utils.getOriginalQuery(req2), '?sort=desc&page=1')
+      assert.equal(result, '/list?success=1')
+    })
+
+    await t.test('when original url has search params', () => {
+      const originalUrl = '/filter/location?page=2&sort=asc'
+      const path = '/list'
+      const result = utils.getPathWithSearchParams(originalUrl, path)
+
+      assert.equal(result, '/list?page=2&sort=asc')
+    })
+
+    await t.test('when original url and path both have search params', () => {
+      const originalUrl = '/filter/location?page=2&sort=asc'
+      const path = '/list?success=1'
+      const result = utils.getPathWithSearchParams(originalUrl, path)
+
+      assert.equal(result, '/list?success=1&page=2&sort=asc')
+    })
+  })
+
+  it('Gets search parameters', () => {
+    const result = utils.getSearchParams('/admin/new?sort=desc&page=1')
+
+    assert.equal(result.get('sort'), 'desc')
+    assert.equal(result.get('page'), '1')
   })
 })
