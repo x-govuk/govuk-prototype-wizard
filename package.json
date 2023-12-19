@@ -23,8 +23,11 @@
   },
   "scripts": {
     "lint:prettier": "prettier . --check",
+    "lint:prettier:fix": "prettier . --write",
     "lint:js": "eslint '**/*.js'",
+    "lint:js:fix": "eslint '**/*.js' --fix",
     "lint": "npm run lint:prettier && npm run lint:js",
+    "lint:fix": "npm run lint:prettier:fix && npm run lint:js:fix",
     "test": "node --test",
     "coverage": "node --test --experimental-test-coverage",
     "release": "np"
