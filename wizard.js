@@ -2,13 +2,12 @@ const utils = require('./lib/utils.js')
 
 /**
  * Get next, back and current paths in user journey.
- *
- * @param {Object} journey - Sequence of paths in user journey
- * @param {Object} req - Express request
- * @returns {Object} Next and back paths
+ * @param {object} journey - Sequence of paths in user journey
+ * @param {object} req - Express request
+ * @returns {object} Next and back paths
  */
 const wizard = (journey, req) => {
-  const { method, originalUrl, path, session } = req
+  const { baseUrl, method, originalUrl, path, session } = req
   const { data } = session
   const paths = Object.keys(journey)
   const index = paths.indexOf(path)
@@ -40,8 +39,8 @@ const wizard = (journey, req) => {
   }
 
   return {
-    next: utils.getPathWithSearchParams(originalUrl, next),
-    back: utils.getPathWithSearchParams(originalUrl, back),
+    next: utils.getPathWithSearchParams(originalUrl, next, baseUrl),
+    back: utils.getPathWithSearchParams(originalUrl, back, baseUrl),
     current: originalUrl
   }
 }
