@@ -1,6 +1,6 @@
 {
   "name": "@x-govuk/govuk-prototype-wizard",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Build and iterate ‘one thing per page’ user journeys when prototyping GOV.UK services",
   "keywords": [
     "govuk",
