@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict')
 const { describe, it } = require('node:test')
+
 const wizard = require('../wizard.js')
 
 describe('GOV.UK Prototype Wizard (with baseUrl)', () => {

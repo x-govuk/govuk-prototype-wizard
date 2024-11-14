@@ -1,7 +1,8 @@
 const utils = require('./lib/utils.js')
 
 /**
- * Get next, back and current paths in user journey.
+ * Get next, back and current paths in user journey
+ *
  * @param {object} journey - Sequence of paths in user journey
  * @param {object} req - Express request
  * @returns {object} Next and back paths

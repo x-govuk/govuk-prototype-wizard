@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict')
 const { describe, it } = require('node:test')
+
 const utils = require('../lib/utils.js')
 
 describe('Utility functions', () => {
